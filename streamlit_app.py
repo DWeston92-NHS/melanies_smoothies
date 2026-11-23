@@ -1,6 +1,8 @@
 # Import python packages
 import streamlit as st
 import os
+
+import requests  
 # Write directly to the app
 st.title(f"Customise your Smoothie! :cup_with_straw: ")
 st.write(
@@ -37,8 +39,9 @@ if options:
 
     for fruit_chosen in options:
         ingredients_string += fruit_chosen + ' '
-
-    #st.write(ingredients_string)
+        smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+        sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
+    
 
     my_insert_stmt = """ insert into smoothies.public.orders(ingredients,name_on_order)
                     values ('""" + ingredients_string + """','"""+ name_on_order+ """')"""
@@ -50,8 +53,4 @@ if options:
         st.success('Your Smoothie is ordered!', icon="✅")
 
 
-import requests  
-smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
 
-#st.text(smoothiefroot_response.json())
-sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
