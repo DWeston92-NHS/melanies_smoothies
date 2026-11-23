@@ -1,0 +1,17 @@
+definition_version: 2
+entities:
+  Custom Smoothie Order Form:
+    type: streamlit
+    meta:
+      use_mixins:
+        - streamlit_shared
+mixins:
+  streamlit_shared:
+    title: Customise Smoothie
+    query_warehouse: COMPUTE_WH
+    compute_pool: SYSTEM_COMPUTE_POOL_CPU
+    main_file: Custom Smoothie Order Form.py
+    artifacts:
+      - pyproject.toml
+      - Custom Smoothie Order Form.py
+      - .streamlit/config.toml
