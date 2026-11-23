@@ -50,7 +50,7 @@ if options:
 
       
         st.subheader(fruit_chosen + ' Nutritional Information')
-        smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/{SEARCH_ON}" )
+        smoothiefroot_response = requests.get(f"https://my.smoothiefroot.com/api/fruit/{SEARCH_ON}" )
         sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
     
 
