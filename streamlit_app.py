@@ -1,7 +1,7 @@
 # Import python packages
 import streamlit as st
 import os
-import pandas
+import pandas as pd
 import requests  
 # Write directly to the app
 st.title(f"Customise your Smoothie! :cup_with_straw: ")
